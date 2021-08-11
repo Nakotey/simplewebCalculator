@@ -20,16 +20,13 @@ app.post('/result', async (req, res) => {
     const num1 = (req.body.number1);
     const num2 = (req.body.number2);
 
-    console.log(num1);
-    console.log(num2);
-    console.log(operation);
-
+    
     if(operation === 'add'){
         const simpleCalculator = new calculator(+num1, +num2);
         const answer = simpleCalculator.add();
 
         res.status(200).render('answer', {solution: {result: answer}});
-    }else if(operation === 'multiply'){
+    }else if(operation === 'product'){
         const simpleCalculator = new calculator(+num1, +num2);
         const answer = simpleCalculator.multiply();
 
