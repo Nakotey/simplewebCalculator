@@ -17,6 +17,7 @@
       <br />
       <label for="operation">operation</label><br />
       <select name="operation" id="operation">
+        <option value=""></option>
         <option value="add">add</option>
         <option value="product">product</option></select
       ><br /><br />
@@ -30,12 +31,19 @@
       function validateForMe(e) {
         var number1 = document.myform.number1.value;
         var number2 = document.myform.number2.value;
+        var operation = document.getElementById('operation');
+        let index = operation.selectedIndex;
 
+        if(operation.options[index].value === '') {
+          alert('Select an operator');
+          return false;
+        }
+        
         if (isNaN(number1) || isNaN(number2)) {
-                 alert("Please enter valid numbers only");
-          
+            alert("Please enter valid numbers only");
            return false;
         }
+
         return true;
      }
 
